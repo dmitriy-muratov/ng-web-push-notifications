@@ -4,5 +4,6 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiUrl: 'api.openweathermap.org/data/2.5/forecast?id=524901&APPID=1111111111'
 };

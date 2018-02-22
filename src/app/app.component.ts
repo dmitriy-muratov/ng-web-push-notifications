@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {PushNotificationsService} from 'ng-push';
+import {ApiService} from './services/api.service';
 
 @Component({
   selector: 'app-root',
@@ -7,11 +8,13 @@ import {PushNotificationsService} from 'ng-push';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   title = 'Web push Notifications!';
+  data: any;
 
-  constructor(private _pushNotifications: PushNotificationsService) {
+  constructor(private _pushNotifications: PushNotificationsService,
+              private _apiService: ApiService) {
     _pushNotifications.requestPermission(); // request for permission as soon as component loads
   }
 
@@ -24,6 +27,18 @@ export class AppComponent {
     const notify = this._pushNotifications.create('Me welcomes you', options).subscribe( // creates a notification
       res => console.log(res),
       err => console.log(err)
+    );
+  }
+
+  ngOnInit(): void {
+    this._apiService.getNewData().subscribe(
+        res => {
+            this.data = res;
+            console.log(this.data);
+        },
+        error => {
+          console.log(error);
+        }
     );
   }
 
