@@ -1,0 +1,17 @@
+h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  text-align: center;
+}
+
+.btn {
+  height: 40px;
+  width: 240px;
+  background: lightblue;
+  font-size: 18px;
+  border-radius: 6px;
+}
