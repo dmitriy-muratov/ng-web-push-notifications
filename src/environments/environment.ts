@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'api.openweathermap.org/data/2.5/forecast?id=524901&APPID=1111111111'
+  apiUrl: 'http://api.openweathermap.org/data/2.5/weather',
+  apiID: '0ba66933239caa5e1f375d9549bf28f5'
 };
