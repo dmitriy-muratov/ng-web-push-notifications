@@ -1,5 +1,8 @@
 # AppNotify
 
+## Description
+This is app with web push notifications and the dynamic content in it. Integrated current weather API (https://openweathermap.org/api).
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0.
 
 ## Development server
