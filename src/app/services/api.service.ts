@@ -1,8 +1,10 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpParams} from '@angular/common/http';
-import {environment} from '../../environments/environment';
-import {ErrorObservable} from 'rxjs/observable/ErrorObservable';
+
+import {throwError, Observable} from 'rxjs';
 import {catchError} from 'rxjs/operators';
+
+import {environment} from '../../environments/environment';
 
 @Injectable()
 export class ApiService {
@@ -13,7 +15,7 @@ export class ApiService {
     constructor(private http: HttpClient) {
     }
 
-    getNewData(cityId: number) {
+    getForecast$(cityId: number): Observable<any> {
       const options = new HttpParams()
         .set('id', cityId.toString())
         .set('APPID', this.apiKey)
@@ -32,8 +34,8 @@ export class ApiService {
                 `Backend returned code ${error.status}, ` +
                 `body was: ${error.error}`);
         }
-        return new ErrorObservable(
-            'Something bad happened; please try again later.');
+
+        return throwError(error);
     }
 
 }
