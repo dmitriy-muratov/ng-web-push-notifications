@@ -6,10 +6,15 @@
   </h1>
 </div>
 
-
 <div class="content">
   <h2>Here are button to display notification: </h2>
   <p>
     <button class="btn" (click)="notify()">Show Notiication</button>
   </p>
 </div>
+
+<ng-container *ngIf="weatherData">
+  <h2>{{ weatherTitle }}</h2>
+  <p>{{ weatherData.body }}</p>
+  <img src="{{ weatherData.icon }}">
+</ng-container>
